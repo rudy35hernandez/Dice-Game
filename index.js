@@ -10,12 +10,13 @@ let player1Dice = document.getElementById("player1Dice")
 let player2Dice = document.getElementById("player2Dice")
 let playerOneScore = document.getElementById("player1Scoreboard")
 let playerTwoScore = document.getElementById("player2Scoreboard")
+const rollButton = document.getElementById("rollBtn")
 const resetBtn = document.getElementById("resetBtn")
 
 const message = document.getElementById("message")
 
 function showDisplayButton() {
-    rollBtn.style.display = "none"
+    rollButton.style.display = "none"
     resetBtn.style.display = "block"
 }
 
@@ -57,6 +58,11 @@ function rollBtn(){
 
 
 resetBtn.addEventListener("click", function(){
+    reset()
+    
+})
+
+function reset(){
     message.innerHTML = "Player 1 turn"
     playerOneScore.textContent = 0;
     playerTwoScore.textContent = 0;
@@ -66,6 +72,7 @@ resetBtn.addEventListener("click", function(){
     scoreTwo = 0
     playerOneTurn = true
     resetBtn.style.display = "none"
-    document.getElementById("rollBtn").style.display = "block"
+    rollButton.style.display = "block"
     player2Dice.classList.remove("active")
-})
+    player1Dice.classList.add("active")
+}
