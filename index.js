@@ -14,7 +14,10 @@ const resetBtn = document.getElementById("resetBtn")
 
 const message = document.getElementById("message")
 
-
+function showDisplayButton() {
+    rollBtn.style.display = "none"
+    resetBtn.style.display = "block"
+}
 
 function rollBtn(){
     
@@ -42,11 +45,27 @@ function rollBtn(){
 
     if(scoreOne >= 20){
         message.innerHTML = "Player 1 has won!!!"
-        document.getElementById("rollBtn").style.display = "none"
-        resetBtn.style.display = "block"
+        showDisplayButton()
+    
     } else if(scoreTwo >= 20){
         message.innerHTML = "Player 2 has won!!!"
+        showDisplayButton()
+  
     }
 
     }
 
+
+resetBtn.addEventListener("click", function(){
+    message.innerHTML = "Player 1 turn"
+    playerOneScore.textContent = 0;
+    playerTwoScore.textContent = 0;
+    player1Dice.textContent = "-"
+    player2Dice.textContent = "-"
+    scoreOne = 0
+    scoreTwo = 0
+    playerOneTurn = true
+    resetBtn.style.display = "none"
+    document.getElementById("rollBtn").style.display = "block"
+    player2Dice.classList.remove("active")
+})
