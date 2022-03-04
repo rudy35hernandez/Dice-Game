@@ -39,4 +39,14 @@ function rollBtn(){
         console.log(scoreTwo)
         message.innerHTML = "Player 1 Turn"
     }
-}
+
+    if(scoreOne >= 20){
+        message.innerHTML = "Player 1 has won!!!"
+        document.getElementById("rollBtn").style.display = "none"
+        resetBtn.style.display = "block"
+    } else if(scoreTwo >= 20){
+        message.innerHTML = "Player 2 has won!!!"
+    }
+
+    }
+
