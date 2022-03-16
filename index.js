@@ -45,11 +45,11 @@ function rollBtn(){
     }
 
     if(scoreOne >= 20){
-        message.innerHTML = "Player 1 has won!!!"
+        message.innerHTML = "Player 1 has won 🎉"
         showDisplayButton()
     
     } else if(scoreTwo >= 20){
-        message.innerHTML = "Player 2 has won!!!"
+        message.innerHTML = "Player 2 has won 🎉"
         showDisplayButton()
   
     }
@@ -62,17 +62,33 @@ resetBtn.addEventListener("click", function(){
     
 })
 
-function reset(){
-    message.innerHTML = "Player 1 turn"
-    playerOneScore.textContent = 0;
-    playerTwoScore.textContent = 0;
-    player1Dice.textContent = "-"
-    player2Dice.textContent = "-"
+function reset() {
+    if(scoreOne < scoreTwo){
     scoreOne = 0
     scoreTwo = 0
-    playerOneTurn = true
+    player1Turn = true
+    player1Scoreboard.textContent = 0
+    player2Scoreboard.textContent = 0
+    player1Dice.textContent = "-"
+    player2Dice.textContent = "-"
+    message.textContent = "Player 1 Turn"
     resetBtn.style.display = "none"
     rollButton.style.display = "block"
     player2Dice.classList.remove("active")
     player1Dice.classList.add("active")
+    } else {
+    player1Score = 0
+    player2Score = 0
+    player1Turn = false;
+    player1Scoreboard.textContent = 0
+    player2Scoreboard.textContent = 0
+    player1Dice.textContent = "-"
+    player2Dice.textContent = "-"
+    message.textContent = "Player 2 Turn"
+    resetBtn.style.display = "none"
+    rollButton.style.display = "block"
+    player1Dice.classList.remove("active")
+    player2Dice.classList.add("active")
+    }
+
 }
